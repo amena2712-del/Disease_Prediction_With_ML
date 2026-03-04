@@ -5,7 +5,7 @@
 - [Aakash Bajaj](https://github.com/aakash11bajaj)
 - [Amena Muzaffar Shumi]()
 - [Deeqa Mahamed]()
-- [Ecce Djogbenou Epse Houenou]()
+- [Ecce Djogbenou Epse Houenou](https://github.com/eccehouenou)
 - [Emre Ozkan]()
 - [Haimeng (James) Wang]()
 

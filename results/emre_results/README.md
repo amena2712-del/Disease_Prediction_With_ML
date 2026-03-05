@@ -1,13 +1,13 @@
 # Emre - KNN vs Random Forest + EDA
 
 This folder has my whole work for this task in one place:
-- notebook: `emre-knn-random-forest.ipynb`
+- notebook: `../../notebooks/emre-knn-random-forest.ipynb`
 - summaries: `eda_summary.json`, `metrics_summary.json`
-- plots: `figures/`
+- plots: same folder (`results/emre_results`)
 
 I used:
-- `data/raw/Training.csv`
-- `data/raw/Testing.csv`
+- `../../data/raw/Training.csv`
+- `../../data/raw/Testing.csv`
 
 Data format quick note:
 - 132 symptom columns (binary 0/1)
@@ -31,14 +31,14 @@ Key findings:
 - Feature prevalence mean: 0.056 (overall sparse feature space)
 
 EDA plots:
-- ![EDA Missing Values](figures/eda_missing_values.png)
-- ![EDA Class Balance](figures/eda_class_balance.png)
-- ![EDA Symptoms Per Record Distribution](figures/eda_symptoms_per_record_distribution.png)
-- ![EDA Feature Prevalence Histogram](figures/eda_feature_prevalence_histogram.png)
-- ![EDA Top 20 Symptom Correlation](figures/eda_top20_symptom_correlation.png)
-- ![EDA Disease Symptom Heatmap](figures/eda_disease_symptom_heatmap.png)
-- ![Class Distribution](figures/class_distribution.png)
-- ![Top Symptoms](figures/top_symptoms.png)
+- ![EDA Missing Values](eda_missing_values.png)
+- ![EDA Class Balance](eda_class_balance.png)
+- ![EDA Symptoms Per Record Distribution](eda_symptoms_per_record_distribution.png)
+- ![EDA Feature Prevalence Histogram](eda_feature_prevalence_histogram.png)
+- ![EDA Top 20 Symptom Correlation](eda_top20_symptom_correlation.png)
+- ![EDA Disease Symptom Heatmap](eda_disease_symptom_heatmap.png)
+- ![Class Distribution](class_distribution.png)
+- ![Top Symptoms](top_symptoms.png)
 
 ## Model results
 
@@ -55,11 +55,11 @@ Why scores are high:
 - train/test structure is very similar
 
 Model plots:
-- ![KNN CV Curve](figures/knn_cv_curve.png)
-- ![Model Accuracy Comparison](figures/model_accuracy_comparison.png)
-- ![KNN Confusion Matrix](figures/knn_confusion_matrix.png)
-- ![Random Forest Confusion Matrix](figures/rf_confusion_matrix.png)
-- ![Random Forest Top Features](figures/rf_top_features.png)
+- ![KNN CV Curve](knn_cv_curve.png)
+- ![Model Accuracy Comparison](model_accuracy_comparison.png)
+- ![KNN Confusion Matrix](knn_confusion_matrix.png)
+- ![Random Forest Confusion Matrix](rf_confusion_matrix.png)
+- ![Random Forest Top Features](rf_top_features.png)
 
 ## If I improve this next
 

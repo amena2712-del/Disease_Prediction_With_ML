@@ -1,0 +1,11 @@
+{
+  "model": "Random Forest",
+  "best_params": {
+    "max_depth": null,
+    "min_samples_split": 2,
+    "n_estimators": 100
+  },
+  "cv_mean_accuracy": 1.0,
+  "test_accuracy": 0.9761904761904762,
+  "macro_f1": 0.9837398373983739
+}

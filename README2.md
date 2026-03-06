@@ -1,4 +1,4 @@
-# Disease Prediction Using Machine Learning 
+git # Disease Prediction Using Machine Learning 
 
 ## Members
 ### Cohort: 8, Team: ML06
@@ -68,7 +68,7 @@ The ultimate objective is to demonstrate how interpretable machine learning can 
 ### Stakeholders
 
 Technical stakeholders:
-* Data scientists and ML engineers:
+* Data scientists and ML engineers
 * Public health departments
 
 Institutional stakeholders:
@@ -81,31 +81,19 @@ Institutional stakeholders:
 # Dataset 
 ## Details 
 
+The dataset contains 4920 observations, each representing a patient record.
+There are 134 columns, including 132 symptom features, one target variable (prognosis), and one extra column that was later removed (originally an index column from the CSV).
+The symptom features are binary (0 = absence, 1 = presence) indicating whether each symptom is observed for a patient.
+The target variable prognosis is categorical with 41 unique disease classes.
+
+![alt text](results/Ecce_results/column_info_table.png)
+
 | Property | Details |
 |---|---|
 | **Source** | [Kaggle – Disease Prediction Using Machine Learning](https://www.kaggle.com/datasets/kaushil268/disease-prediction-using-machine-learning/data) |
 | **Author** | kaushil268 |
-| **Files** | `Training.csv`, `Testing.csv` |
-| **Total Columns** | 133 |
-| **Feature Columns** | 132 (binary symptom indicators: 0 = absent, 1 = present) |
-| **Target Column** | `prognosis` (disease label) |
-| **Training Rows** | 4,920 |
-| **Testing Rows**  | 42 |
-| **Number of Disease Classes** | 41 |
 
-##  Variables / Features 
 
-The datatset contains 132 binary symptom features. Each recording if the symptom is present or absent. 
-
-Example include: `itching`, `skin_rash`, `nodal_skin_eruptions`, `continuous_sneezing`, `shivering`, `chills`, `joint_pain`, `stomach_pain`, `acidity`, `vomiting`, `fatigue`, `weight_gain`, `anxiety`, `cold_hands_and_feets`, `mood_swings`, `weight_loss`, `restlessness`, `lethargy`, `patches_in_throat`, `irregular_sugar_level`, and many others.
-
-## Target Variable
-
-The `prognosis` column within the dataset contains the disease labels and is our Target variable. Each row has one of 41 potential labels.
-
-The 41 classes span infectious diseases (e.g., Typhoid, Dengue, Malaria), chronic conditions (e.g., Diabetes, Hypertension, Arthritis), skin disorders (e.g., Psoriasis, Fungal infection), and gastrointestinal/respiratory conditions.
-
----
 ## Identified Issues and Limitations
 
 #### 1. Synthetic / Rule-Based Data
@@ -129,7 +117,6 @@ Each row is an isolated symptom profile. Real diagnosis often depends on how sym
 
 > **Due to the above, we belive that some models may achieve near-perfect accuracy in this environment while failing to generalize to real-world clinical settings.**
 
->**_Results should be interpreted accordingly._**
 
 ---
 # Methodology 
@@ -169,7 +156,7 @@ K-Nearest Neighbors (KNN)| Non Paramteric Comparitor, Highly Interpretable
 - **scikit-learn**: Fit and evaluate supervised and unsupervised ML models
 - **pandas**: Load and explore the dataset
 - **numpy**: Basic data manipulations
-- **matplotlib**: Create visualizations
+- **matplotlib**: Create visualizations.
 
 ## Repository Structure
 
@@ -227,4 +214,140 @@ We have listed the model choices below for each team member.
 
 
 ## References
+
+## Exploratory Data Analysis
+Data set overview
+- The Training dataset contains 1 target variable, `prognosis`  and 132 feature variables
+There are a total of 4920 observations.
+The 132 features are binary (0 = absence, 1 = presence).
+There are no missing values in any variable
+There are 94 % of duplicates.
+[text](results/emre_results/eda_summary.json)
+
+- The testing data set from the kaggle, contains 42 observations (patients) and 133 columns. Each row represents an individual patient record, while the columns represent symptom indicators and the target disease label.
+
+[text](results/emre_results/metrics_summary.json)
+## Target Variable
+
+The `prognosis` column within the dataset contains the disease labels and is our Target variable. The 41 classes span infectious diseases are all perfectly balanced and contained each 120 observations. 
+![alt text](results/emre_results/eda_class_balance.png)
+
+Most individuals report between 3 and 6 symptoms, with fewer cases exhibiting a high symptom burden (>14 symptoms). This suggests moderate variability in symptom presentation across patients.
+
+
+![alt text](results/Ecce_results/avg_symptoms_per_disease.png)
+
+Symptoms such as fatigue,vomiting, high fever appear frequently across multiple diseases.
+
+![alt text](results/james_results/top_symptoms.png)
+
+ Certain diseases show strong associations with specific symptoms, which may help machine learning models distinguish between conditions.
+ ![alt text](results/emre_results/eda_top20_symptom_correlation.png)
+
+
+ # Model development and Evaluation
+ ## Model 1: Logistic Regression
+The experiment was conducted by splitting the dataset into training and test dataset, stratified. The Logistic regression model was used. With an accuracy of The following results were obtained:
+
+
+| Metric                   | Score |
+| ------------------------ | ----- |
+| Accuracy                 | 1.00  |
+| Precision (Macro Avg)    | 1.00  |
+| Recall (Macro Avg)       | 1.00  |
+| F1 Score (Macro Avg)     | 1.00  |
+| Precision (Weighted Avg) | 1.00  |
+| Recall (Weighted Avg)    | 1.00  |
+| F1 Score (Weighted Avg)  | 1.00  |
+| Test Samples             | 42    |
+| Number of Classes        | 22    |
+
+ [text](results/amena_results/logistic_regression_metrics.json)
+
+Logistic regression Visualizations
+
+![alt text](results/amena_results/logistic_regression_confusion_matrix.png)
+
+Logistic Regression: Strengths and Limitations
+- Strengths
+
+The Logistic regression model is simple and interpretable  and help to understand how each symptom contributes to predictions. It is Fast training and Works well with binary features. It provides probabilities for each disease prediction. and have a low risk of overfitting.
+
+- Limitations
+
+The Logistic regression model assumes linear relationships and may not capture complex interactions between symptoms. It has a limited handling of complex patterns and struggles with non-linear symptom-disease relationships.It is sensitive to imbalanced data – biased toward diseases with more samples. It performance depends on good preprocessing and feature selection. With small dataset, there is a  very high accuracy which may not generalize to larger or noisier datasets.
+
+
+## Model 2: Random Forest
+Random Forest is an ensemble learning algorithm that builds multiple decision trees and combines their predictions.
+
+## Random Forest Performance
+
+| Metric |              Score |
+|--------|               -------|
+| Accuracy |              0.976 |
+| Precision (Macro Avg) | 0.99 |
+| Recall (Macro Avg)     | 0.99 |
+| F1 Score (Macro Avg)   | 0.98 |
+| Precision (Weighted Avg) | 0.99 |
+| Recall (Weighted Avg)    | 0.98 |
+| F1 Score (Weighted Avg)  | 0.98 |
+| Best Hyperparameters | {'max_depth': None, 'min_samples_split': 2, 'n_estimators': 100} |
+| Best CV Score | 1.0 |
+
+[text](results/amena_results/random_forest_metrics.json)
+
+Random Forest Visualizations
+
+![alt text](results/emre_results/rf_confusion_matrix.png)
+
+With an accuraccy of 0.97619, the following results were obtained:
+Muscle pain, itching, etc are the top features noticed.
+
+![alt text](results/amena_results/rf_top_30_features.png)
+
+- Strengths
+
+Random forest captures complex, non-linear relationships and can handle symptom interactions automatically. It handles high-dimensional data and  robust even with many features. It is resistant to overfitting. It helps identify most predictive symptoms.
+
+- Limitations
+
+Random Forest is less interpretable. It is computationally heavier, slower training and more memory usage than simple models. It is sensitive to imbalanced data. It requires setting random seeds for consistent results.
+Overfitting is possible with small data.
+
+## Model 3: Bernoulli Naive Bayes
+Bernoulli Naive Bayes has been run and here are the results:
+## Bernoulli Naive Bayes Performance
+
+| Metric |                 Score |
+|--------|                -------|
+| Accuracy |                1.00 |
+| Precision (Macro Avg)    | 1.00 |
+| Recall (Macro Avg)       | 1.00 |
+| F1 Score (Macro Avg)     | 1.00 |
+| Precision (Weighted Avg) | 1.00 |
+| Recall (Weighted Avg)    | 1.00 |
+| F1 Score (Weighted Avg)  | 1.00 |
+
+[text](results/Ecce_results/bernoulli_nb_results.json)
+
+Bernoulli Visualizations
+
+![alt text](results/Ecce_results/bernoulli_confusion_matrix.png)
+
+- Strengths
+
+Bernoulli Naives model works well with binary features. It is computationally efficient, even with many features.
+
+It can manage datasets with many symptoms and provides class probabilities, useful for confidence assessment.
+
+It is simple and interpretable
+
+- Limitations
+
+Bernoulli Naives model assumes feature independence. It cannot model interactions between symptoms and is sensitive to zero probabilities. It may underperform with small datasets and probabilities can be skewed if there is few samples per class.
+
+## Some comparison between models
+
+![alt text](results/james_results/model_comparison.png)
 

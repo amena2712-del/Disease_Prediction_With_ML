@@ -332,7 +332,7 @@ The first experiment involved training a Logistic Regression model, where the re
 | Recall (Weighted Avg)    | 1.00  |
 | F1 Score (Weighted Avg)  | 1.00  |
 | Test Samples             | 42    |
-| Number of Classes        | 22    |
+| Number of Classes        | 42    |
 
 </div>
 

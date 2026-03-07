@@ -309,7 +309,7 @@ We have listed the model choices below for each team member.
 
 **Correlation Heatmap**
 <p align="center">
-<img src="results/emre_results/eda_top20_symptom_correlation.png">
+<img src="results/james_results/symptom_correlation.png">
 </p>
 
 ---
@@ -418,7 +418,8 @@ The third experiment involved training a Bernoulli Naive Bayes model, where the 
 | Precision (Weighted Avg) | 1.00 |
 | Recall (Weighted Avg)    | 1.00 |
 | F1 Score (Weighted Avg)  | 1.00 |
-
+| 5-Fold CV Accuracy | 1.0000 ± 0.0000 |
+| Misclassifications | 0 / 42 |
 </div>
 
 ### Bernoulli Naive Bayes Visualizations
@@ -426,7 +427,7 @@ The third experiment involved training a Bernoulli Naive Bayes model, where the 
 **Confusion Matrix - Bernoulli Naive Bayes**
 
 <p align="center">
-<img src="results/Ecce_results/bernoulli_confusion_matrix.png">
+<img src="results/james_results/confusion_matrix_bnb.png">
 </p>
 
 ### Bernoulli Naive Bayes Strengths and Limitations
@@ -436,13 +437,16 @@ The third experiment involved training a Bernoulli Naive Bayes model, where the 
 - It is computationally efficient, even with many features.
 - It can manage datasets with many symptoms and provides class probabilities, useful for confidence assessment.
 - It is simple and interpretable
+- In our analysis, we had perfect accuracy on both cross-validation and the held-out test set.
+- Fast to train and highly interpretable — each symptom's contribution can be read directly from the model's log-probabilities.
 
 **Limitations:**
 
 - Bernoulli Naive Bayes model assumes feature independence. 
 - It cannot model interactions between symptoms and is sensitive to zero probabilities. 
 - It may underperform with small datasets and probabilities can be skewed if there is few samples per class.
-
+- Assumes conditional independence between features — violated by the 5 highly correlated symptom pairs identified in EDA (e.g. `yellowish_skin ↔ yellowing_of_eyes`).
+- In real-world noisy data, this independence assumption would likely hurt performance. The perfect score here reflects the clean, synthetic nature of the dataset.
 ## Model 4: Random Forest
 The fourth experiment involved training a Random Forest model, where the results were as follows:
 

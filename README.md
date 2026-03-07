@@ -158,12 +158,12 @@ The more meaningful question becomes:
 
 | Model | Key Advantage|
 |---|---|
-Logistic Regression| Simple, Fast, Easy to Implement 
-Decision Tree | Visualizable and Easy to Communicate
-Bernoulli Naive Bayes | Most Appropriate for Binary Features
-Random Forest | Robust, Handles Binary Features Well
-XGBoost | High Interpretability, Strong performance 
-K-Nearest Neighbors (KNN) & Hierarchical Clustering| Non Parametric Comparator, Highly Interpretable  
+Logistic Regression| Simple, Fast, Easy to Implement |
+Decision Tree | Visualizable and Easy to Communicate |
+Bernoulli Naive Bayes | Most Appropriate for Binary Features |
+Random Forest | Robust, Handles Binary Features Well |
+XGBoost | High Interpretability, Strong performance |
+K-Nearest Neighbors (KNN) & Hierarchical Clustering| Non Parametric Comparator, Highly Interpretable |
 
 ## Technical stack
 - **scikit-learn**: Fit and evaluate supervised and unsupervised ML models
@@ -291,14 +291,13 @@ We have listed the model choices below for each team member.
 <img src="results/emre_results/eda_class_balance.png">
 </p>
 
-- Most individuals report between 3 and 6 symptoms, with fewer cases exhibiting a high symptom burden (>14 symptoms). 
-- This suggests moderate variability in symptom presentation across patients.
-
 **Average Number of Symptoms per Patient**
 <p align="center">
 <img src="results/Ecce_results/avg_symptoms_per_disease.png">
 </p>
 
+- Most individuals report between 3 and 6 symptoms, with fewer cases exhibiting a high symptom burden (>14 symptoms). 
+- This suggests moderate variability in symptom presentation across patients.
 - Symptoms such as fatigue,vomiting, high fever appear frequently across multiple diseases.
 
 **Top 20 Reported Symptoms**
